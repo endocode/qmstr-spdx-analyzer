@@ -24,13 +24,10 @@ checkpep8: $(PYTHON_FILES) venv
 autopep8: $(PYTHON_FILES) venv
 	venv/bin/autopep8 -i $(filter-out venv, $^)
 
-.PHONY: pyqmstr-spdx-analyzer
-pyqmstr-spdx-analyzer: $(SPDX_ANALYZER)
-
 .PHONY: clean
 clean:
 	@rm -fr venv || true
 	@rm -fr wheels || true
 	@rm requirements.txt || true
-	@rm spdx-analyzer || true
+	@rm $(SPDX_ANALYZER) || true
 	@rm -rf pyqmstr_spdx_analyzer.egg-info || true
